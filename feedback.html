@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Feedback – MBKCAD</title>
+<link rel="icon" href="bilder/logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="provisorisch">PROVISORISCHE VORSCHAU – das Feedback wird über Ihr Mailprogramm verschickt</div>
+<header><div class="kopf">
+  <a class="marke" href="index.html"><img src="bilder/logo.png" alt="">MBKCAD</a>
+  <nav><a href="index.html">Was ist MBKCAD</a><a href="funktionen.html">Funktionen</a><a href="lizenzen.html">Lizenzen</a><a class="aktiv" href="feedback.html">Feedback</a></nav>
+</div></header>
+
+<main>
+  <section>
+    <div class="sperr">Feedback</div>
+    <h1>Wie läuft's mit MBKCAD?</h1>
+    <p class="lead">Ob Fehler, Wunsch, Lob oder Frage: Jede Rückmeldung wird gelesen. Gerade weil MBKCAD neu ist und sich an Normen orientiert,
+      helfen Ihre Hinweise, falsche Werte und Stolpersteine schnell zu finden.</p>
+    <div class="raster" style="margin-top:22px">
+      <div class="karte"><h3>Fehler melden</h3><p>Etwas rechnet oder zeichnet falsch, ein Normwert stimmt nicht, ein Befehl bricht ab? Bitte möglichst genau beschreiben, wie es dazu kam.</p></div>
+      <div class="karte"><h3>Wunsch äussern</h3><p>Fehlt ein Profil, eine Schraube, ein Treppentyp oder ein Arbeitsschritt? Wünsche fliessen in die nächsten Updates ein.</p></div>
+      <div class="karte"><h3>Erfahrung teilen</h3><p>Was hilft Ihnen im Alltag, was stört? Auch ein kurzes «läuft gut» oder «zu kompliziert» ist wertvoll.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Rückmeldung schreiben</h2>
+    <form class="formular" id="fb" autocomplete="on" novalidate>
+      <div class="breit">
+        <label>Wie zufrieden sind Sie insgesamt?</label>
+        <div class="sterne" role="radiogroup" aria-label="Bewertung 1 bis 5">
+          <input type="radio" name="sterne" id="s5" value="5"><label for="s5" title="sehr gut">★</label>
+          <input type="radio" name="sterne" id="s4" value="4"><label for="s4" title="gut">★</label>
+          <input type="radio" name="sterne" id="s3" value="3"><label for="s3" title="geht so">★</label>
+          <input type="radio" name="sterne" id="s2" value="2"><label for="s2" title="eher schlecht">★</label>
+          <input type="radio" name="sterne" id="s1" value="1"><label for="s1" title="schlecht">★</label>
+        </div>
+        <div class="sterntext" id="sterntext">Noch keine Bewertung (freiwillig)</div>
+      </div>
+
+      <div class="breit">
+        <label>Art der Rückmeldung</label>
+        <div class="wahl">
+          <label><input type="radio" name="art" value="Fehler" checked><span>Fehler melden</span></label>
+          <label><input type="radio" name="art" value="Normwert prüfen"><span>Normwert stimmt nicht</span></label>
+          <label><input type="radio" name="art" value="Wunsch"><span>Wunsch / Idee</span></label>
+          <label><input type="radio" name="art" value="Lob"><span>Lob</span></label>
+          <label><input type="radio" name="art" value="Frage"><span>Frage</span></label>
+        </div>
+      </div>
+
+      <div><label for="bereich">Bereich</label>
+        <select id="bereich">
+          <option>Allgemein</option><option>Installation / Lizenz</option><option>Menüband</option><option>Layer</option>
+          <option>Zeichnen / Hilfslinien</option><option>Schraffur (AutoSchraff)</option><option>Bemassen / Koten</option>
+          <option>BMagic Profile</option><option>Stahlbau-Anschlüsse</option><option>BefBlo Schrauben / Anker</option>
+          <option>Blech / Folien (BQuick, BLEDIT)</option><option>Schweissnaht</option><option>Bauanschluss</option>
+          <option>Treppe</option><option>Geländer</option><option>Stahlliste / Schraubenliste</option>
+          <option>Planrahmen / Plankopf / Revision</option><option>Ansichtsfenster / PDF</option>
+        </select></div>
+      <div><label for="acad">AutoCAD-Version</label>
+        <select id="acad">
+          <option>AutoCAD LT 2027</option><option>AutoCAD LT 2026</option><option>AutoCAD LT 2025</option><option>AutoCAD LT 2024</option>
+          <option>AutoCAD 2027</option><option>AutoCAD 2026</option><option>AutoCAD 2025</option><option>AutoCAD 2024</option><option>andere / weiss nicht</option>
+        </select></div>
+
+      <div class="breit"><label for="titel">Kurz zusammengefasst</label>
+        <input id="titel" maxlength="120" required placeholder="z.B. Treppe: Wange steht beim Austritt über"></div>
+
+      <div class="breit"><label for="text">Beschreibung</label>
+        <textarea id="text" required placeholder="Was ist Ihnen aufgefallen? Je genauer, desto besser."></textarea></div>
+
+      <div class="nur-fehler breit" id="fehlerteil">
+        <div class="formular" style="margin:0; padding:18px; background:var(--bg)">
+          <div class="breit"><p class="grau klein" style="margin:0">Bei Fehlern hilft das besonders – alles freiwillig:</p></div>
+          <div><label for="schritte">Was haben Sie gemacht?</label><textarea id="schritte" style="min-height:90px" placeholder="1. MBK_TREPPE gestartet&#10;2. Geschosshöhe 2800 …"></textarea></div>
+          <div><label for="erwartet">Was hätten Sie erwartet?</label><textarea id="erwartet" style="min-height:90px" placeholder="z.B. Wange endet lotrecht an der Antrittskante"></textarea></div>
+          <div class="breit"><label for="norm">Betroffene Norm / Quelle (falls bekannt)</label><input id="norm" placeholder="z.B. BFU 2.007, Abschnitt Steigungsverhältnis"></div>
+        </div>
+      </div>
+
+      <div><label for="name">Name (freiwillig)</label><input id="name" autocomplete="name" placeholder="Max Muster"></div>
+      <div><label for="mail">E-Mail für Rückfragen (freiwillig)</label><input id="mail" type="email" autocomplete="email" placeholder="max@beispiel.ch"></div>
+      <div class="breit"><label class="check"><input type="checkbox" id="kontakt"> Sie dürfen mich zu dieser Rückmeldung kontaktieren.</label></div>
+      <div class="breit"><p class="grau klein" style="margin:0">Tipp: Ein Bildschirmfoto oder die DWG-Datei hilft oft sehr – hängen Sie sie im Mailprogramm einfach an.</p></div>
+      <div class="breit"><button class="knopf primaer" type="submit">Feedback senden</button> <span class="grau klein" id="fbfehler"></span></div>
+    </form>
+
+    <div class="ergebnis" id="fbok">
+      <h2>Danke für Ihre Rückmeldung!</h2>
+      <p class="grau">Ihr Mailprogramm sollte sich mit der fertigen Nachricht geöffnet haben – bitte dort noch auf «Senden» klicken.
+        Falls nichts passiert ist, kopieren Sie den Text und senden ihn an <b id="fbadresse"></b>.</p>
+      <pre class="vorschau" id="fbtext"></pre>
+      <div class="knoepfe"><button class="knopf" type="button" id="fbkopieren">Text kopieren</button><a class="knopf" id="fbmailto" href="#">Mailprogramm erneut öffnen</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="norm kurz">
+      <div class="zeichen">!</div>
+      <div><p><b>Orientiert an Normen, ohne Gewähr.</b> Gemeldete Normfehler werden geprüft und mit dem nächsten Update korrigiert.
+        Bis dahin gilt immer die aktuelle Norm. <a href="index.html#normen">Mehr dazu</a></p></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="fuss"><span>MBKCAD 1.2 · MBK Constructions · <a href="index.html#normen">Orientiert an Normen, ohne Gewähr</a> · <a href="feedback.html">Feedback</a></span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="agb.html">AGB</a> · <a href="lizenzvertrag.html">Lizenzvertrag</a> · AutoCAD und AutoCAD LT sind Marken von Autodesk, Inc. MBKCAD ist ein unabhängiges Zusatzprodukt.</span></div></footer>
+<script src="shop-config.js"></script>
+<script src="seite.js"></script>
+<script src="feedback.js"></script>
+</body>
+</html>

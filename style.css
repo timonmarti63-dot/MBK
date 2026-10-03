@@ -1,0 +1,302 @@
+/* MBKCAD Webseite - schwarz / weiss / gruen wie Setup und Symbole */
+:root {
+  --bg: #090a0b; --panel: #111315; --panel2: #181b1e; --linie: #2e3237;
+  --weiss: #f0f2f4; --text: #c9ced3; --grau: #8c939a; --grau2: #565c62;
+  --gruen: #4ade80; --gruen-d: #18543a; --gruen-h: #82f5af; --rot: #f05c5c; --gelb: #f2c14e;
+  --mono: Consolas, "Cascadia Mono", monospace;
+  --schrift: "Bahnschrift", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html, body { margin: 0; background: var(--bg); color: var(--weiss); font-family: "Segoe UI", system-ui, sans-serif; line-height: 1.55; }
+body {
+  background-image: linear-gradient(var(--panel) 1px, transparent 1px), linear-gradient(90deg, var(--panel) 1px, transparent 1px);
+  background-size: 22px 22px; overflow-x: hidden;
+}
+a { color: var(--gruen); text-decoration: none; }
+a:hover { color: var(--gruen-h); }
+img { max-width: 100%; display: block; }
+
+.provisorisch { background: var(--gruen-d); color: var(--weiss); text-align: center; font: 600 13px var(--mono); padding: 6px 16px; letter-spacing: .04em; }
+
+header { position: sticky; top: 0; z-index: 20; background: rgba(9,10,11,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--linie); }
+.kopf { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; gap: 24px; padding: 12px 16px; }
+.marke { display: flex; align-items: center; gap: 10px; font: 700 24px var(--schrift); color: var(--weiss); letter-spacing: .02em; }
+.marke img { width: 38px; height: 38px; }
+nav { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+nav a { font: 600 13px var(--schrift); letter-spacing: .12em; text-transform: uppercase; color: var(--grau); padding: 8px 12px; border: 1px solid transparent; }
+nav a:hover { color: var(--weiss); border-color: var(--linie); }
+nav a.aktiv { color: var(--gruen); border-color: var(--gruen); }
+
+main { max-width: 1180px; margin: 0 auto; padding: 0 16px 60px; }
+section { padding: 60px 0 8px; }
+.sperr { font: 700 12px var(--schrift); letter-spacing: .28em; text-transform: uppercase; color: var(--gruen); }
+h1 { font: 700 clamp(34px, 6vw, 58px)/1.05 var(--schrift); margin: 12px 0 18px; }
+h2 { font: 700 clamp(24px, 3.4vw, 34px)/1.15 var(--schrift); margin: 10px 0 16px; }
+h3 { font: 700 19px var(--schrift); margin: 0 0 8px; }
+.lead { font-size: 18px; color: var(--text); max-width: 780px; }
+.grau { color: var(--grau); }
+.mono { font-family: var(--mono); }
+.klein { font-size: 14px; }
+
+/* ---------- Kopfbereich ---------- */
+.held { display: grid; grid-template-columns: .95fr 1.05fr; gap: 40px; align-items: center; padding-top: 60px; }
+.rahmen { border: 1px solid var(--linie); background: var(--panel); padding: 8px; }
+.ecken { position: relative; }
+.ecken::before, .ecken::after { content: ""; position: absolute; width: 18px; height: 18px; border-color: var(--gruen); border-style: solid; z-index: 1; }
+.ecken::before { top: -6px; left: -6px; border-width: 2px 0 0 2px; }
+.ecken::after { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; }
+figure { margin: 0; }
+figcaption { font: 12.5px var(--mono); color: var(--grau); padding: 8px 2px 0; }
+
+.knopf { display: inline-block; font: 700 14px var(--schrift); letter-spacing: .1em; text-transform: uppercase; padding: 13px 22px;
+  border: 1.5px solid var(--grau); color: var(--weiss); background: transparent; cursor: pointer;
+  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px); }
+.knopf:hover { border-color: var(--weiss); color: var(--weiss); background: var(--panel2); }
+.knopf.primaer { background: var(--gruen); border-color: var(--gruen); color: var(--bg); }
+.knopf.primaer:hover { background: var(--gruen-h); }
+.knopf:disabled { opacity: .45; cursor: not-allowed; }
+.knoepfe { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
+.raster { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.karte { background: var(--panel); border: 1px solid var(--linie); padding: 22px; position: relative; }
+.karte::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gruen); }
+.karte p { margin: 0; color: #c2c8cd; }
+.zahl { font: 700 40px var(--schrift); color: var(--gruen); }
+
+/* ---------- Punkt fuer Punkt (wie die Praesentation) ---------- */
+.punkte { display: grid; gap: 0; margin-top: 18px; border-top: 1px solid var(--linie); }
+.punkt { display: grid; grid-template-columns: 76px minmax(0, 1fr) minmax(0, 1.05fr); gap: 28px; align-items: start; padding: 34px 0; border-bottom: 1px solid var(--linie); }
+.punkt .nr { font: 700 46px/1 var(--mono); color: var(--gruen); }
+.punkt h3 { font-size: 22px; margin-bottom: 4px; }
+.punkt .ort { margin-bottom: 0; }
+.punkt ul.liste { list-style: none; margin: 14px 0 0; padding: 0; }
+.punkt ul.liste li { position: relative; padding: 6px 0 6px 24px; color: var(--text); border-top: 1px dashed var(--linie); }
+.punkt ul.liste li:first-child { border-top: 0; }
+.punkt ul.liste li::before { content: ""; position: absolute; left: 2px; top: 15px; width: 8px; height: 8px; background: var(--gruen); }
+.punkt .mehr { display: inline-block; margin-top: 12px; font: 600 13px var(--schrift); letter-spacing: .08em; text-transform: uppercase; }
+.punkt .vorschau { border: 1px solid var(--linie); background: #0c0d0e; padding: 6px; cursor: zoom-in; aspect-ratio: 16 / 11; display: grid; place-items: center; overflow: hidden; }
+.punkt .vorschau img { width: 100%; height: 100%; object-fit: contain; transition: transform .25s; }
+.punkt .vorschau:hover img { transform: scale(1.02); }
+
+/* ---------- Gruende (Startseite) ---------- */
+.gruende { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.grund { background: var(--panel); border: 1px solid var(--linie); padding: 24px; position: relative; }
+.grund .gnr { font: 700 34px/1 var(--mono); color: var(--gruen); margin-bottom: 14px; }
+.grund p { margin: 0; color: var(--text); }
+.pfad { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; margin: 20px 0 14px; }
+.stufe { background: var(--panel); border: 1px solid var(--linie); border-top: 3px solid var(--gruen); padding: 22px 24px; position: relative; }
+.stufe:not(:last-child)::after { content: "→"; position: absolute; right: -28px; top: 50%; transform: translateY(-50%); font: 700 22px var(--mono); color: var(--gruen); }
+.stufe h3 { margin: 6px 0 2px; font-size: 22px; }
+.preiszeile { font: 700 28px var(--schrift); color: var(--weiss); }
+.preiszeile small { font-size: 14px; color: var(--grau); font-weight: 400; }
+.stufe p { margin: 8px 0 0; color: var(--text); }
+.sprung { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.sprung a { font: 600 13px var(--schrift); letter-spacing: .06em; color: var(--text); border: 1px solid var(--linie); background: var(--panel); padding: 7px 12px; }
+.sprung a:hover { color: var(--gruen); border-color: var(--gruen); }
+.punkt[id] { scroll-margin-top: 80px; }
+
+/* ---------- Pro / Contra ---------- */
+.prokontra { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+.seite { background: var(--panel); border: 1px solid var(--linie); padding: 24px 26px; }
+.seite.pro { border-top: 3px solid var(--gruen); }
+.seite.contra { border-top: 3px solid var(--grau); }
+.seite h3 { display: flex; align-items: center; gap: 10px; }
+.seite ul { list-style: none; margin: 14px 0 0; padding: 0; }
+.seite li { position: relative; padding: 10px 0 10px 34px; border-top: 1px solid var(--linie); color: var(--text); }
+.seite li b { color: var(--weiss); display: block; }
+.seite li::before { position: absolute; left: 0; top: 11px; width: 22px; height: 22px; display: grid; place-items: center; font: 700 14px var(--mono); }
+.seite.pro li::before { content: "+"; background: var(--gruen); color: var(--bg); }
+.seite.contra li::before { content: "–"; border: 1.5px solid var(--grau); color: var(--grau); }
+.passt { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+.passt > div { border: 1px dashed var(--linie); padding: 18px 22px; }
+.passt h3 { font-size: 16px; }
+.passt ul { margin: 6px 0 0; padding-left: 18px; color: var(--text); }
+
+/* ---------- Normen-Hinweis ---------- */
+.norm { display: grid; grid-template-columns: 52px 1fr; gap: 18px; background: #16140d; border: 1px solid #4a3f1d; border-left: 4px solid var(--gelb); padding: 22px 24px; margin-top: 22px; }
+.norm .zeichen { width: 44px; height: 44px; border: 2px solid var(--gelb); color: var(--gelb); display: grid; place-items: center; font: 700 24px var(--schrift); }
+.norm h3 { color: var(--gelb); }
+.norm p { margin: 0 0 8px; color: #d9d2bd; }
+.norm p:last-child { margin-bottom: 0; }
+.norm.kurz { padding: 14px 18px; grid-template-columns: 34px 1fr; gap: 12px; }
+.norm.kurz .zeichen { width: 30px; height: 30px; font-size: 17px; }
+.normtag { display: inline-block; font: 600 11px var(--mono); color: var(--gelb); border: 1px solid #4a3f1d; padding: 2px 7px; margin: 0 6px 6px 0; }
+
+.vergleich { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 15px; }
+.vergleich th, .vergleich td { border-bottom: 1px solid var(--linie); padding: 12px 10px; text-align: left; vertical-align: top; }
+.vergleich th { font: 700 12px var(--schrift); letter-spacing: .14em; text-transform: uppercase; color: var(--grau); }
+.vergleich td.ja { color: var(--gruen); font-weight: 600; }
+.tabelle-rollen { overflow-x: auto; }
+
+.schritte { counter-reset: s; }
+.schritt { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 12px 0; }
+.schritt::before { content: counter(s, decimal-leading-zero); font: 700 13px var(--mono); color: var(--bg); background: var(--gruen); height: 30px; display: grid; place-items: center; }
+
+/* ---------- Menueband-Betrachter ---------- */
+.band { margin-top: 20px; border: 1px solid var(--linie); background: #3b4453; }
+.band .reiter { display: flex; flex-wrap: wrap; background: #222933; }
+.band .reiter button { font: 14px "Segoe UI", sans-serif; color: #c4ccd5; background: none; border: 0; padding: 9px 14px; cursor: pointer; }
+.band .reiter button:hover { color: #fff; }
+.band .reiter button.an { background: #3b4453; color: #fff; box-shadow: inset 0 -2px 0 var(--gruen); }
+.band .bild { overflow-x: auto; cursor: zoom-in; }
+.band .bild img { max-width: none; height: 126px; width: auto; }
+.band .text { padding: 14px 18px; background: var(--panel); color: var(--text); font-size: 15px; border-top: 1px solid var(--linie); }
+.band .text b { color: var(--weiss); }
+
+/* ---------- Funktionen als Dokumentation ---------- */
+.doku { display: grid; grid-template-columns: 250px 1fr; gap: 40px; align-items: start; margin-top: 30px; }
+.inhalt { position: sticky; top: 76px; max-height: calc(100vh - 96px); overflow-y: auto; border: 1px solid var(--linie); background: var(--panel); padding: 14px 0; }
+.inhalt .sperr { padding: 0 16px 8px; }
+.inhalt a { display: grid; grid-template-columns: 28px 1fr; gap: 6px; padding: 5px 16px; color: var(--grau); font-size: 14px; line-height: 1.3; border-left: 2px solid transparent; }
+.inhalt a span { font: 700 12px var(--mono); color: var(--grau2); padding-top: 1px; }
+.inhalt a:hover { color: var(--weiss); background: var(--panel2); }
+.inhalt a.an { color: var(--gruen); border-left-color: var(--gruen); background: var(--panel2); }
+.inhalt a.an span { color: var(--gruen); }
+.kapitel { padding: 46px 0 40px; border-top: 1px solid var(--linie); }
+.kapitel:first-child { border-top: 0; padding-top: 0; }
+.kapitel .kopfzeile { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.kapitel .knr { font: 700 13px var(--mono); color: var(--bg); background: var(--gruen); padding: 4px 9px; }
+.kapitel h2 { margin: 6px 0 6px; }
+.ort { font: 13px var(--mono); color: var(--grau); margin-bottom: 4px; }
+.ort b { color: var(--text); font-weight: 600; }
+.befehle { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 4px; }
+.befehle code { font: 12px var(--mono); color: var(--gruen-h); background: #0d1a12; border: 1px solid var(--gruen-d); padding: 3px 8px; }
+.kapitel .koerper { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 18px; align-items: start; }
+.kapitel .koerper.breit { grid-template-columns: 1fr; }
+.kapitel h4 { font: 700 12px var(--schrift); letter-spacing: .22em; text-transform: uppercase; color: var(--grau); margin: 0 0 8px; }
+.kapitel p { color: var(--text); margin: 0 0 18px; }
+ol.ablauf { counter-reset: a; list-style: none; margin: 0 0 18px; padding: 0; }
+ol.ablauf li { counter-increment: a; position: relative; padding: 7px 0 7px 38px; color: var(--text); border-top: 1px dashed var(--linie); }
+ol.ablauf li::before { content: counter(a); position: absolute; left: 0; top: 8px; width: 24px; height: 24px; display: grid; place-items: center; font: 700 12px var(--mono); color: var(--gruen); border: 1.5px solid var(--gruen); }
+.tipp { border-left: 3px solid var(--gruen); background: var(--panel); padding: 10px 14px; font-size: 14.5px; color: var(--text); }
+.tipp::before { content: "TIPP  "; font: 700 11px var(--mono); color: var(--gruen); letter-spacing: .12em; }
+.galerie { display: grid; gap: 10px; }
+.galerie .gross { border: 1px solid var(--linie); background: var(--panel); padding: 6px; cursor: zoom-in; }
+.galerie .gross img { width: 100%; max-height: 430px; object-fit: contain; background: #0c0d0e; }
+.galerie .daumen { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
+.galerie .daumen button { padding: 0; border: 1px solid var(--linie); background: var(--panel); height: 66px; cursor: pointer; overflow: hidden; }
+.galerie .daumen button img { width: 100%; height: 100%; object-fit: cover; object-position: left top; opacity: .7; }
+.galerie .daumen button.an { border-color: var(--gruen); }
+.galerie .daumen button.an img, .galerie .daumen button:hover img { opacity: 1; }
+
+.plaene { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin-top: 18px; }
+.plaene figure { border: 1px solid var(--linie); background: var(--panel); padding: 6px; cursor: zoom-in; }
+.plaene img { aspect-ratio: 1138 / 811; width: 100%; object-fit: cover; }
+
+/* ---------- Bild gross ---------- */
+.lb { position: fixed; inset: 0; z-index: 50; background: rgba(5,6,7,.94); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 50px 16px 20px; }
+.lb.offen { display: flex; }
+.lb img { max-width: 100%; max-height: calc(100vh - 110px); object-fit: contain; border: 1px solid var(--linie); background: #0c0d0e; }
+.lb .unter { font: 13px var(--mono); color: var(--grau); margin-top: 10px; text-align: center; }
+.lb button { position: absolute; top: 12px; right: 16px; font: 700 13px var(--schrift); letter-spacing: .1em; color: var(--weiss); background: var(--panel2); border: 1px solid var(--linie); padding: 8px 14px; cursor: pointer; }
+
+/* ---------- Formulare ---------- */
+.formular { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; background: var(--panel); border: 1px solid var(--linie); padding: 26px; margin-top: 22px; }
+.formular .breit { grid-column: 1 / -1; }
+label { display: block; font: 700 11px var(--schrift); letter-spacing: .18em; text-transform: uppercase; color: var(--grau); margin-bottom: 6px; }
+input, select, textarea { width: 100%; background: var(--bg); color: var(--weiss); border: 1px solid var(--linie); padding: 12px; font: 15px "Segoe UI", sans-serif; }
+textarea { min-height: 120px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gruen); }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #c2c8cd; text-transform: none; letter-spacing: 0; font-weight: 400; }
+.check input { width: auto; margin-top: 4px; accent-color: var(--gruen); }
+.summe { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--linie); padding-top: 14px; }
+.summe b { font: 700 28px var(--schrift); color: var(--gruen); }
+.wahl { display: flex; flex-wrap: wrap; gap: 8px; }
+.wahl label { margin: 0; cursor: pointer; }
+.wahl input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.wahl span { display: inline-block; font: 600 13px var(--schrift); letter-spacing: .06em; text-transform: none; color: var(--text); border: 1px solid var(--linie); padding: 9px 14px; background: var(--bg); }
+.wahl input:checked + span { border-color: var(--gruen); color: var(--gruen); box-shadow: inset 0 0 0 1px var(--gruen); }
+.wahl input:focus-visible + span { outline: 2px solid var(--gruen-h); }
+.sterne { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 4px; }
+.sterne input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.sterne label { font-size: 34px; line-height: 1; color: var(--grau2); cursor: pointer; margin: 0; letter-spacing: 0; }
+.sterne label:hover, .sterne label:hover ~ label, .sterne input:checked ~ label { color: var(--gruen); }
+.sterne input:focus-visible + label { outline: 2px solid var(--gruen-h); }
+.sterntext { font: 13px var(--mono); color: var(--grau); margin-top: 6px; min-height: 18px; }
+.nur-fehler { display: none; }
+.ist-fehler .nur-fehler { display: block; }
+
+/* Lizenzen */
+.preise { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+.preis { background: var(--panel); border: 1px solid var(--linie); padding: 26px; display: flex; flex-direction: column; cursor: pointer; transition: border-color .15s; }
+.preis:hover { border-color: var(--grau); }
+.preis.gewaehlt { border-color: var(--gruen); box-shadow: 0 0 0 1px var(--gruen) inset; }
+.preis .betrag { font: 700 44px var(--schrift); margin: 8px 0 0; }
+.preis .betrag small { font-size: 16px; color: var(--grau); font-weight: 400; }
+.preis .hinweis { font: 600 11px var(--mono); color: var(--gruen); letter-spacing: .1em; text-transform: uppercase; min-height: 16px; }
+.preis ul { flex: 1; }
+.preis ul, .karte ul { margin: 10px 0 0; padding-left: 0; list-style: none; }
+.preis li, .karte li { padding: 4px 0 4px 22px; position: relative; color: var(--text); }
+.preis li::before, .karte li::before { content: ""; position: absolute; left: 2px; top: 13px; width: 8px; height: 8px; background: var(--gruen); }
+
+/* Download + Anleitung */
+.download { display: grid; grid-template-columns: 96px 1fr; gap: 26px; align-items: start; background: var(--panel); border: 1px solid var(--linie); border-left: 4px solid var(--gruen); padding: 28px; margin-top: 18px; }
+.dl-logo { width: 96px; height: 96px; }
+.download h3 { font-size: 24px; margin: 0; }
+.dl-meta { font: 13px var(--mono); color: var(--grau); margin: 4px 0 12px; }
+.download p { margin: 0; color: var(--text); max-width: 760px; }
+.download .knoepfe { margin-top: 18px; }
+.dl-pruef { margin-top: 14px; font-size: 13px; color: var(--grau); }
+.dl-pruef summary { cursor: pointer; }
+.dl-pruef code { display: block; font: 12px var(--mono); color: var(--text); word-break: break-all; margin: 6px 0; }
+#dl-installiert { margin-top: 12px; }
+ol.anleitung { counter-reset: a; list-style: none; margin: 22px 0 0; padding: 0; }
+ol.anleitung > li { counter-increment: a; display: grid; grid-template-columns: 52px minmax(0, 1fr) 300px; gap: 20px; align-items: start; padding: 20px 0; border-top: 1px solid var(--linie); }
+ol.anleitung > li::before { content: counter(a); width: 40px; height: 40px; display: grid; place-items: center; font: 700 18px var(--mono); color: var(--bg); background: var(--gruen); }
+ol.anleitung > li > div { grid-column: 2; }
+ol.anleitung h3 { margin: 6px 0 4px; }
+ol.anleitung p { margin: 0; color: var(--text); }
+ol.anleitung figure { grid-column: 3; border: 1px solid var(--linie); background: var(--panel); padding: 4px; cursor: zoom-in; }
+.probleme { margin-top: 26px; border: 1px dashed var(--linie); padding: 18px 22px; }
+.probleme ul { margin: 8px 0 0; padding-left: 18px; color: var(--text); }
+.probleme li { padding: 3px 0; }
+
+.ergebnis { display: none; margin-top: 22px; }
+.ergebnis.zeigen { display: block; }
+.lizenz { font: 700 clamp(18px, 3.2vw, 28px) var(--mono); color: var(--gruen); background: var(--bg); border: 1px dashed var(--gruen); padding: 16px; text-align: center; letter-spacing: .06em; word-break: break-all; }
+.mail { background: #f4f5f6; color: #1a1d20; border: 1px solid var(--linie); margin-top: 18px; font-size: 14px; }
+.mail .kopfzeilen { background: #e6e8ea; padding: 12px 18px; font-family: var(--mono); font-size: 12.5px; color: #3b4148; word-break: break-word; }
+.mail .inhalt { padding: 22px 26px; }
+.mail .inhalt h3 { color: #0d0f11; }
+.mail .schluessel { font: 700 18px var(--mono); background: #0b0c0d; color: var(--gruen); padding: 12px; text-align: center; margin: 12px 0; word-break: break-all; }
+.mail table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+.mail td { border-bottom: 1px solid #d6d9dc; padding: 7px 4px; }
+pre.vorschau { white-space: pre-wrap; word-break: break-word; font: 13px/1.5 var(--mono); color: var(--text); background: var(--bg); border: 1px solid var(--linie); padding: 16px; max-height: 360px; overflow: auto; }
+
+footer { border-top: 1px solid var(--linie); margin-top: 40px; }
+.fuss { max-width: 1180px; margin: 0 auto; padding: 22px 16px; display: flex; gap: 10px 20px; flex-wrap: wrap; justify-content: space-between; font: 12px var(--mono); color: var(--grau2); }
+.fuss a { color: var(--grau); }
+
+@media (max-width: 980px) {
+  .doku { grid-template-columns: 1fr; }
+  .inhalt { position: static; max-height: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .inhalt .sperr { grid-column: 1 / -1; }
+  .punkt { grid-template-columns: 60px minmax(0, 1fr); gap: 18px; }
+  .punkt .vorschau { grid-column: 1 / -1; }
+}
+@media (max-width: 860px) {
+  .held, .preise, .formular, form.kauf, .prokontra, .passt, .kapitel .koerper, .gruende, .pfad { grid-template-columns: 1fr; }
+  .pfad { gap: 30px; }
+  .download { grid-template-columns: 1fr; padding: 20px; }
+  .dl-logo { width: 64px; height: 64px; }
+  ol.anleitung > li { grid-template-columns: 44px minmax(0, 1fr); gap: 14px; }
+  ol.anleitung figure { grid-column: 1 / -1; }
+  .stufe:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -28px; transform: translateX(-50%); }
+  header { position: static; }
+  html { scroll-padding-top: 10px; }
+  .kopf { flex-wrap: wrap; }
+  nav { margin-left: 0; }
+  .punkt .nr { font-size: 34px; }
+  .norm { grid-template-columns: 1fr; }
+}
+
+/* ---------- Kaufbox, Rechtstexte ---------- */
+.kaufbox { background: var(--panel); border: 1px solid var(--linie); padding: 24px 26px; margin-top: 18px; display: grid; gap: 12px; }
+.kaufbox .summe { border-top: 0; padding-top: 0; }
+.knopf.gesperrt { opacity: .45; cursor: not-allowed; }
+.rechtstext { max-width: 860px; }
+.rechtstext h2 { font-size: 20px; margin: 26px 0 8px; padding-top: 6px; border-top: 1px solid var(--linie); }
+.rechtstext h2:first-of-type { border-top: 0; }
+.rechtstext p { color: var(--text); margin: 0 0 12px; }
+mark { background: #4a3f1d; color: #ffe9a8; padding: 0 4px; border-radius: 2px; }

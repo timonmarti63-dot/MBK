@@ -1,0 +1,3 @@
+# Vorschau: noch nicht von Suchmaschinen erfassen lassen. Beim Livegang diese Datei und die meta-Zeile robots noindex entfernen (Installer\webseite_veroeffentlichen.ps1 -Live macht das).
+User-agent: *
+Disallow: /
